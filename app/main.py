@@ -1,14 +1,9 @@
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, HTTPException, Response
-from typing import List, Dict
-from itertools import combinations
+from fastapi import FastAPI
 from routes import router  
-from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
-from reportlab.pdfgen import canvas
 from fastapi.middleware.cors import CORSMiddleware
-from collections import Counter
 import os
 import requests
 import asyncio

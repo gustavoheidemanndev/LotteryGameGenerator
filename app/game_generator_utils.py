@@ -2,7 +2,6 @@ import pandas as pd
 import logging
 from typing import List
 from itertools import combinations
-from reportlab.pdfgen import canvas
 from config import Directories
 
 logger = logging.getLogger(__name__)

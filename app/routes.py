@@ -5,7 +5,7 @@ from typing import List, Dict
 import logging
 from exceptions import ValidationError
 from app.validators import validate_color_quantities
-from app.game_generator_utils import extract_array_excel, initial_game_filter
+from app.game_generator_utils import initial_game_filter
 from app.utils import generate_pdf
 
 
