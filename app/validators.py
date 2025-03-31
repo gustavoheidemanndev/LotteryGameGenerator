@@ -1,4 +1,4 @@
-from exceptions import ValidationError
+from app.exceptions import ValidationError
 
 def validate_color_quantities(color_quantities: list[int]) -> None:
     if len(color_quantities) != 10:

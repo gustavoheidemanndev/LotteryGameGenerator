@@ -2,7 +2,7 @@ import pandas as pd
 import logging
 from typing import List
 from itertools import combinations
-from config import Directories
+from app.config import Directories
 
 logger = logging.getLogger(__name__)
 

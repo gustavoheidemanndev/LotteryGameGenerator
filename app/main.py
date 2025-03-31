@@ -1,16 +1,14 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
-from routes import router  
+from app.routes import router 
+from app.config import Directories 
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial
 from fastapi.middleware.cors import CORSMiddleware
 import os
 import requests
 import asyncio
-from config import Directories
 
-app = FastAPI()
-app.include_router(router)
 
 FILE_URL = "https://asloterias.com.br/download_excel.php"
 DEST_FILE = os.path.join(Directories.DATA.value, "loto_facil_asloterias_ate_concurso.xlsx")
@@ -43,6 +41,7 @@ app = FastAPI(
     debug=True,
     lifespan=lifespan
 )
+app.include_router(router)
 
 app.add_middleware(
     CORSMiddleware,

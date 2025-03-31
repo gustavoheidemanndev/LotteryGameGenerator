@@ -3,7 +3,7 @@ from fastapi import Response
 from app.game_generator import generate_quantity_sequences, find_most_eleven_ocurrencies, generate_color_combinations, read_colors_past_games, generate_games_by_best_results, get_amount_occurence_numbers_last_draw, correct_numbers_winning_draws
 from typing import List, Dict
 import logging
-from exceptions import ValidationError
+from app.exceptions import ValidationError
 from app.validators import validate_color_quantities
 from app.game_generator_utils import initial_game_filter
 from app.utils import generate_pdf
