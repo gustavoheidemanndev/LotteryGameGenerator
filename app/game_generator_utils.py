@@ -49,7 +49,7 @@ def remove_lists_with_long_sequences(lists):
         for i in range(1, len(lst)):
             if lst[i] == lst[i-1] + 1:
                 count += 1
-                if count > 4:
+                if count > 5 and count < 3:
                     return True
             else:
                 count = 1
@@ -89,6 +89,16 @@ def gerar_combinacoes_complemento(array, repeated_numbers):
         resultado.append(lista_completa)
     return resultado
 
+def gerar_combinacoes_complemento_com_restante_combinacoes(array, repeated_numbers):
+    resultado: list[list[int]] = []
+    todos_numeros = set(range(1, 26))
+    restante = todos_numeros - set(array)
+    for combo in combinations(array, repeated_numbers):
+        for comb5 in combinations(restante, 5):
+            combinacao_final = list(combo) + list(comb5)
+            resultado.append(combinacao_final)
+    return resultado
+
 def list_with_gaps(gaps, list):
     filtered_list = []
     filtered_list.append(list[0])
@@ -117,11 +127,13 @@ def should_keep_list(numbers):
     odd_count, even_count = count_odd_even(numbers)
     
     invalid_combinations = [
-        (8, 7),
-        (7, 8)
+        (4, 11),
+        (11, 4),
+        (10, 5),
+        (5, 10)
     ]
     
-    return (odd_count, even_count) in invalid_combinations
+    return (odd_count, even_count) not in invalid_combinations
 
 def process_number_lists(list_of_lists):
     return [numbers for numbers in list_of_lists if should_keep_list(numbers)]

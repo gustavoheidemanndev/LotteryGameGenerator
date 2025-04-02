@@ -145,7 +145,7 @@ def generate_games_by_best_results():
             listFinal.extend(filtered_list)
         index += 1
         print(f"{total_reg}-{index}")
-    return list_with_gaps(5, listFinal)
+    return list_with_gaps(8, listFinal)
 
 
 def get_amount_occurence_numbers_last_draw():

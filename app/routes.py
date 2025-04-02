@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from fastapi import Response
 from app.game_generator import generate_quantity_sequences, find_most_eleven_ocurrencies, generate_color_combinations, read_colors_past_games, generate_games_by_best_results, get_amount_occurence_numbers_last_draw, correct_numbers_winning_draws
+from app.tests_game_generator import test_generator_games
 from typing import List, Dict
 import logging
 from app.exceptions import ValidationError
@@ -87,3 +88,8 @@ async def numero_de_jogos_numeros_repetidos():
 @router.get("/count-ocurrency-last-draw")
 async def count_ocurrency_numbers_last_draw() -> list:
     return get_amount_occurence_numbers_last_draw()
+
+
+@router.get("/test-game-generator-past-games")
+async def get_test_game_generator_past_games() -> list:
+    return test_generator_games()
